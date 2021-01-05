@@ -1,18 +1,28 @@
-import express from 'express';
-import cors from 'cors';
-//import routes from './app/routes';
-import dotenv from 'dotenv'
-dotenv.config({ silent: true })
+const myLog = require('debug')('api:main');
+const app = require('express')();
+const { Sequelize } = require('sequelize');
 
-const { CORS_ORIGIN, PORT } = process.env;
-const app = express();
-const corOptions = {
-    "origin": CORS_ORIGIN,
-    "methods": "GET,HEAD,PATCH,POST,DELETE",
-};
+const mySequelize = new Sequelize('postgres://user:postgres:5432/potgres');
 
-app.use(cors(corOptions)); // Habilitando acesso de outra origem Cross-Origin Resource Sharing
-app.use(express.json()); // Transforma o JSON do body em um objeto JavaScript
-//app.use('/usuarios', routes.usuarios);
-//app.use('/projetos', routes.projetos);
-app.listen(PORT);
+const PORT = 4000;
+
+async function connectionDatabase() {
+    
+try {
+    await mySequelize.authenticate();
+    myLog('Connection has been established successfully.');
+  } catch (error) {
+    myLog(`Unable to connect to the database: ${error}`);
+  }
+}
+
+connectionDatabase();
+app.use(async (request, response, next) => {
+    
+    myLog(request.query,`request at: ${new Date().toISOString()}`);
+  return next();
+});
+
+app.get('/', (request, response) => response.send('API Saint Seiya!\n Em Construção...\n'));
+
+app.listen(PORT, myLog(`running at ${PORT}`));
