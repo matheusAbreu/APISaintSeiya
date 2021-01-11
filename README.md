@@ -18,6 +18,7 @@ Antes de executar a migração tenha instalado o Postgresql 10 ou superior.
 
 ```shell
 #navegando para a home do projeto
-$ cd <...>/back-end/
-$ npx sequelize-cli db:migrate
+$ cd <...>/APISaintSeiya/
+$ npx sequelize db:create
+$ npx sequelize db:migrate
 ```
