@@ -14,7 +14,7 @@ $ npm start
 
 ### Para executar a migração de banco
 
-Antes de executar a migração tenha instalado o Postgresql 10 ou superior.
+Antes de executar a migração tenha instalado o Postgresql 12 ou superior.
 
 ```shell
 #navegando para a home do projeto
