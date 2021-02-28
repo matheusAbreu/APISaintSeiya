@@ -1,5 +1,7 @@
 .env
 node_modules
+
+*.txt
 lib/jasmine_examples
 spec/helpers
 spec/jasmine_examples

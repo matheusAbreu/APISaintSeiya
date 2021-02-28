@@ -6,20 +6,36 @@ module.exports = {
      * Example:
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
-    await queryInterface.createTable('users', {
+    await queryInterface.createTable('gods', {
       id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.UUID,
         primaryKey: true,
-        autoIncrement: true,
+        defaultValue: Sequelize.literal('uuid_generate_v4()'),
         allowNull: false,
       },
       name: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      email: {
+      human_name: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: true,
+      },
+      date_of_birth: {
+        type: Sequelize.DATE,
+        allowNull: true
+      },
+      responsible_for: {
+        type: Sequelize.STRING,
+        allowNull: true
+      },
+      resume: {
+        type: Sequelize.STRING,
+        allowNull: true
+      },
+      images: {
+        type: Sequelize.ARRAY(Sequelize.TEXT),
+        allowNull: true
       },
       created_at: {
         type: Sequelize.DATE,
@@ -39,6 +55,6 @@ module.exports = {
      * Example:
      * await queryInterface.dropTable('users');
      */
-    await queryInterface.dropTable('users');
+    await queryInterface.dropTable('gods');
   },
 };

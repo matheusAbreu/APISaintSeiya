@@ -1,13 +1,16 @@
 const express = require('express');
 //const myLog = require('debug')('api:routes');
-const UserController = require('./controllers/GodsController');
+const GodsController = require('./controllers/GodsController');
 
 const routes = express.Router();
 
-routes.post('/gods', UserController.store);
+routes.post('/gods', GodsController.store);
 
-routes.get('/', (request, response) => response.json({
-  helloword: "API Saint Seiya! Em Construção..."}));
+routes.get('/', (request, response) => {
+  return response.json({
+    helloword: "API Saint Seiya! Em Construção..."
+  });
+});
 
 /*
 function WriteInLog(msg) {
