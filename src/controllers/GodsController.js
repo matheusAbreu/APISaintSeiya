@@ -2,6 +2,12 @@ const Gods = require('../models/Gods');
 const uuid = require('uuid');
 
 module.exports = {
+  async index(req, res) {
+    const allGods = await Gods.findAll();
+
+    return res.json(allGods);
+  },
+
   async store(req, res) {
     const {
       name,

@@ -4,6 +4,7 @@ const GodsController = require('./controllers/GodsController');
 
 const routes = express.Router();
 
+routes.get('/gods', GodsController.index);
 routes.post('/gods', GodsController.store);
 
 routes.get('/', (request, response) => {
