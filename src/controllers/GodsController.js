@@ -1,5 +1,4 @@
 const Gods = require('../models/Gods');
-const uuid = require('uuid');
 
 module.exports = {
   async index(req, res) {

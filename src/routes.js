@@ -1,11 +1,15 @@
 const express = require('express');
 //const myLog = require('debug')('api:routes');
 const GodsController = require('./controllers/GodsController');
+const WarriorTypesController = require('./controllers/WarriorTypesController');
 
 const routes = express.Router();
 
 routes.get('/gods', GodsController.index);
 routes.post('/gods', GodsController.store);
+
+routes.get('/gods/:god/warriors_types', WarriorTypesController.index);
+routes.post('/gods/:god/warriors_types', WarriorTypesController.store);
 
 routes.get('/', (request, response) => {
   return response.json({
