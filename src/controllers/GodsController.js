@@ -28,4 +28,17 @@ module.exports = {
 
     return res.json(newGod);
   },
+  async remove(req, res) {
+    const { god } = req.params;
+
+    const godFind = await Gods.findByPk(god);
+    
+    if (!godFind)
+      return res.status(404).json({ error: 'god not found' });
+    
+    await godFind.destroy();
+
+    return res.status(204).json();
+
+  },
 };

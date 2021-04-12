@@ -7,9 +7,11 @@ const routes = express.Router();
 
 routes.get('/gods', GodsController.index);
 routes.post('/gods', GodsController.store);
+routes.delete('/gods/:god', GodsController.remove);
 
 routes.get('/gods/:god/warriors_types', WarriorTypesController.index);
 routes.post('/gods/:god/warriors_types', WarriorTypesController.store);
+routes.delete('/gods/:god/warriors_types', WarriorTypesController.remove);
 
 routes.get('/', (request, response) => {
   return response.json({
