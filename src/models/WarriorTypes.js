@@ -12,6 +12,7 @@ class WarriorTypes extends Model {
     }
     static associate(models) {
         this.belongsTo(models.Gods, { foreignKey: 'god_id', as: 'myGod' });
+        this.hasMany(models.Armors, { foreignKey: 'warrior_type_id', as: 'whatTypeWarriorIsHe' });
         //this.belongsTo(models.User, { foreignKey: 'user_id', as: 'user' });
     }
 };
