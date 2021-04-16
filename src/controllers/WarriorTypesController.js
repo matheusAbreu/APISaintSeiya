@@ -1,11 +1,22 @@
 const WarriorTypes = require('../models/WarriorTypes');
 const Gods = require('../models/Gods');
+const { index } = require('./GodsController');
 
 module.exports = {
   async index(req, res) {
     const allWTypes = await WarriorTypes.findAll();
 
     return res.json(allWTypes);
+  },
+  async indexSelectedGod(req, res) {
+    const { god } = req.params;
+
+    const warriorsGod = await Gods.findByPk(god, { include: { association: 'myWarriors' } });
+
+    if (!warriorsGod)
+      return res.status(404).json({ error: 'god not found' });
+
+    return res.json(warriorsGod.myWarriors);
   },
 
     async store(req, res) {
@@ -26,6 +37,18 @@ module.exports = {
     
   },
   async remove(req, res) {
+    const { id } = req.params;
+
+    const warriorType = await WarriorTypes.findByPk(id);
+    
+    if (!warriorType)
+      return res.status(404).json({ error: 'warrior type not found' });
+
+    await warriorType.destroy();
+
+    return res.status(204).json();
+  },
+  async removeSelectedGod(req, res) {
     const { god } = req.params;
     const { name } = req.body;
 

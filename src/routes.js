@@ -9,9 +9,11 @@ routes.get('/gods', GodsController.index);
 routes.post('/gods', GodsController.store);
 routes.delete('/gods/:god', GodsController.remove);
 
-routes.get('/gods/:god/warriors_types', WarriorTypesController.index);
+routes.get('/warriors_types', WarriorTypesController.index);
+routes.delete('/warriors_types/:id', WarriorTypesController.remove);
+routes.get('/gods/:god/warriors_types', WarriorTypesController.indexSelectedGod);
 routes.post('/gods/:god/warriors_types', WarriorTypesController.store);
-routes.delete('/gods/:god/warriors_types', WarriorTypesController.remove);
+routes.delete('/gods/:god/warriors_types', WarriorTypesController.removeSelectedGod);
 
 routes.get('/', (request, response) => {
   return response.json({
