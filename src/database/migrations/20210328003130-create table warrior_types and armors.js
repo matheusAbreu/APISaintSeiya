@@ -47,7 +47,7 @@ module.exports = {
         onDelete: 'SET NULL',
       },
       resume: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
         allowNull: true
       },
       images: {

@@ -4,10 +4,14 @@ const Routes = require('./routes');
 
 require('./database');
 
-const PORT = 4000;
+const { 
+    APP_PORT_EXPOSE,
+  } = process.env;
+
+//const PORT = 4000;
 const app = express();
 
 app.use(express.json());
 app.use(Routes);
 
-app.listen(PORT, myLog(`running at ${PORT}`));
+app.listen(APP_PORT_EXPOSE, myLog(`running at ${APP_PORT_EXPOSE}`));

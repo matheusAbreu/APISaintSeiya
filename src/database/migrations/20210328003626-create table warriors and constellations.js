@@ -16,7 +16,7 @@ module.exports = {
         allowNull: true
       },
       resume: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
         allowNull: true
       },
       images: {
