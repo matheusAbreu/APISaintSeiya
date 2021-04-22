@@ -47,6 +47,6 @@ $ podman run -v ~/Área\ de\ trabalho/APISaintSeiya/:/APISAINTSEIYA/:ro localhos
 > utilize a flag -e
 
 ```sh
-$ podman run -e DB_DATABASE=api_saint_seiya -e DB_HOST=valor -e DB_PASSWORD=valor -e DB_PORT=5432 -e DB_USER=valor -e DB_DIALECT=valor -e APP_PORT_EXPOSE=4000 -v ~/Área\ de\ trabalho/APISaintSeiya/:/APISAINTSEIYA/:ro localhost/apisaintseiya:0.1
+$ podman run -e DB_DATABASE=api_saint_seiya -e DB_HOST=valor -e DB_PASSWORD=valor -e DB_PORT=5432 -e DB_USER=valor -e DB_DIALECT=postgres -e APP_PORT_EXPOSE=4000 -v ~/Área\ de\ trabalho/APISaintSeiya/:/APISAINTSEIYA/:ro localhost/apisaintseiya:0.1
 
 ```
