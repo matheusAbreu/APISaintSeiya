@@ -37,7 +37,7 @@ $ docker build -t apisaintseiya:0.1 .
 
 $ docker run -ti -v ~/Área\ de\ trabalho/APISaintSeiya/:/APISAINTSEIYA/ apisaintseiya:0.1
 ```
-> usando buildah e podman
+> usando podman
 ```sh
 $ podman build -t apisaintseiya:0.1 .
 
@@ -50,3 +50,14 @@ $ podman run -v ~/Área\ de\ trabalho/APISaintSeiya/:/APISAINTSEIYA/:ro localhos
 $ podman run -e DB_DATABASE=api_saint_seiya -e DB_HOST=valor -e DB_PASSWORD=valor -e DB_PORT=5432 -e DB_USER=valor -e DB_DIALECT=postgres -e APP_PORT_EXPOSE=4000 -v ~/Área\ de\ trabalho/APISaintSeiya/:/APISAINTSEIYA/:ro localhost/apisaintseiya:0.1
 
 ```
+
+## Rotas Implementadas
+
+|Metodo         | Rota          | Retorno descrito                       | Possiveis Status | Campos Retornados    | Campos Informados |
+|---------------|---------------|----------------------------------------|------------------|----------------------|-------------------|
+|GET            | "/"           | Apresentação da API                    |                  | { helloword: string }|        nenhum     |
+|GET            | "/gods"       |Lista com todos os deuses cadastrados   |                  | {}                   |        nenhum     |
+|POST           | "/gods"       |Cadastra um novo deus                   |                  |                      |                   |
+|PUT            |~~"/gods/:god_id"~~|Não Implementado                    |                  |                      |                   |
+|DELETE         |"/gods/:god_id"|remove deus pertencente ao id informado|        nenhum     |        nenhum        |                   |
+|GET         | "/warriors_types"|Lista todos os tipos de guerreiros cadastrados|            |                      |        nenhum     |
