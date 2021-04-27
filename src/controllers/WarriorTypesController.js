@@ -62,7 +62,7 @@ module.exports = {
       return res.status(404).json({ error: 'god not found' });
 
     const warriorType = await WarriorTypes.findOne({
-     where:{ god_id: god, class_name: name}
+     where:{ god_id: god, name}
     });
 
     await warriorType.destroy();

@@ -17,7 +17,7 @@ routes.get('/warriors_types', WarriorTypesController.index);
 routes.delete('/warriors_types/:id', WarriorTypesController.remove);
 routes.get('/gods/:god/warriors_types', WarriorTypesController.indexSelectedGod);
 routes.post('/gods/:god/warriors_types', WarriorTypesController.store);
-routes.delete('/gods/:god/warriors_types', WarriorTypesController.removeSelectedGod);
+//routes.delete('/gods/:god/warriors_types', WarriorTypesController.removeSelectedGod);
 
 //Armors
 //routes.get('/armors', ArmorsController.index);
@@ -29,19 +29,5 @@ routes.get('/', (request, response) => {
     helloword: "API Saint Seiya! Em Construção..."
   });
 });
-
-/*
-function WriteInLog(msg) {
-  return myLog(`${msg}, at: ${new Date().toISOString()}`);
-}
-routes.get('/', (request, response) => {
-  let requestInStr = JSON.stringify(request.query);
-
-  if (requestInStr === '{}') requestInStr = 'request made with unidentified author';
-
-  WriteInLog(`request info: ${requestInStr}`);
-
-  return response.send('API Saint Seiya!\n Em Construção...\n');
-}); */
 
 module.exports = routes;

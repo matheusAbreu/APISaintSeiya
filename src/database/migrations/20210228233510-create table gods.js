@@ -1,20 +1,19 @@
+
+const { UuidInEachDialect } = require("../../utils");
+const { DB_DIALECT } = process.env;
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    /**
-     * Add altering commands here.
-     *
-     * Example:
-     * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
-     */
     await queryInterface.createTable('gods', {
       id: {
         type: Sequelize.UUID,
         primaryKey: true,
-        defaultValue: Sequelize.literal('uuid_generate_v4()'),
+        defaultValue: Sequelize.literal(UuidInEachDialect[DB_DIALECT]),
         allowNull: false,
       },
       name: {
         type: Sequelize.STRING,
+        unique: true,
         allowNull: false,
       },
       human_name: {
@@ -31,10 +30,6 @@ module.exports = {
       },
       resume: {
         type: Sequelize.TEXT,
-        allowNull: true
-      },
-      images: {
-        type: Sequelize.ARRAY(Sequelize.TEXT),
         allowNull: true
       },
       created_at: {

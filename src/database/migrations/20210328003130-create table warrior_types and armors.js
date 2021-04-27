@@ -1,19 +1,25 @@
+
+const { UuidInEachDialect } = require("../../utils");
+const { DB_DIALECT } = process.env;
+
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('warrior_types', {
       id: {
         type: Sequelize.UUID,
         primaryKey: true,
-        defaultValue: Sequelize.literal('uuid_generate_v4()'),
+        defaultValue: Sequelize.literal(UuidInEachDialect[DB_DIALECT]),
         allowNull: false,
       },
-      class_name: {
+      name: {
         type: Sequelize.STRING,
+        unique: true,
         allowNull: false,
       },
       god_id: {
         type: Sequelize.UUID,
-        allowNull: false,
+        allowNull: true,
         references: { model: 'gods', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'SET NULL',
@@ -32,7 +38,7 @@ module.exports = {
       id: {
         type: Sequelize.UUID,
         primaryKey: true,
-        defaultValue: Sequelize.literal('uuid_generate_v4()'),
+        defaultValue: Sequelize.literal(UuidInEachDialect[DB_DIALECT]),
         allowNull: false,
       },
       version: {
@@ -41,17 +47,13 @@ module.exports = {
       },
       warrior_type_id: {
         type: Sequelize.UUID,
-        allowNull: false,
+        allowNull: true,
         references: { model: 'warrior_types', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'SET NULL',
       },
       resume: {
         type: Sequelize.TEXT,
-        allowNull: true
-      },
-      images: {
-        type: Sequelize.ARRAY(Sequelize.TEXT),
         allowNull: true
       },
       created_at: {
