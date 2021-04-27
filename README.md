@@ -57,7 +57,7 @@ $ podman run -e DB_DATABASE=api_saint_seiya -e DB_HOST=valor -e DB_PASSWORD=valo
 $ podman run --name mysqlteste -e MYSQL_ROOT_PASSWORD=mysql -e MYSQL_USER=mysql -e MYSQL_TCP_PORT=8080 -e MYSQL_DATABASE=mysql -e MYSQL_PASSWORD=mysql -e MYSQL_HOST=127.0.0.1 -p 8080:8080 -d docker.io/library/mysql:latest
 
 ```
-## Rotas Implementadas
+## ~~Rotas Implementadas~~ (Não concluido...)
 
 |Metodo         | Rota                       | Retorno descrito                                               | Possiveis Status | Campos Retornados    | Campos Informados |
 |---------------|----------------------------|----------------------------------------------------------------|------------------|----------------------|-------------------|
