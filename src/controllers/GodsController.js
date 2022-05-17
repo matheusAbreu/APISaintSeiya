@@ -3,10 +3,10 @@ const Gods = require('../models/Gods');
 module.exports = {
   async index(req, res) {
     const allGods = await Gods.findAll({
-      attributes: ['id','name', 'human_name', 'date_of_birth', 'responsible_for', 'resume', 'images']
+      attributes: ['id','name', 'human_name', 'date_of_birth', 'responsible_for', 'resume']
     });
 
-    return res.json(allGods);
+    return res.json({listGods: allGods});
   },
 
   async store(req, res) {
