@@ -8,7 +8,7 @@ class Gods extends Model {
             date_of_birth: DataTypes.DATE, //optional
             responsible_for: DataTypes.STRING,//optional
             resume: DataTypes.STRING,//optional
-            images: DataTypes.ARRAY(DataTypes.TEXT),//optional
+            //images: DataTypes.ARRAY(DataTypes.TEXT),//optional
         }, {
             sequelize: connection
         });

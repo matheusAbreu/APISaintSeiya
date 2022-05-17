@@ -15,8 +15,7 @@ module.exports = {
       human_name,
       date_of_birth,
       responsible_for,
-      resume,
-      images
+      resume
     } = req.body;
 
     const newGod = await Gods.create({
@@ -24,8 +23,7 @@ module.exports = {
       human_name,
       date_of_birth,
       responsible_for,
-      resume,
-      images
+      resume
     });
 
     return res.json(newGod);
