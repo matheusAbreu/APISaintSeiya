@@ -8,6 +8,7 @@ const routes = express.Router();
 
 //Gods
 routes.get('/gods', GodsController.index);
+routes.get('/gods/:god', GodsController.get);
 routes.post('/gods', GodsController.store);
 routes.delete('/gods/:god', GodsController.remove);
 
